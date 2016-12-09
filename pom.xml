@@ -61,7 +61,7 @@
                             <goal>updates</goal>
                         </goals>
                         <configuration>
-                            <appbase>http://192.168.1.10/industria/java/balanceadosDosificacionManual</appbase>
+                            <appbase>http://192.168.1.26/java/balanceadosDosificacionManual</appbase>
                             <libPath>lib</libPath>
                             <mainClass>com.chortitzer.industria.bal.dosificacionManual.controller.MainFrame</mainClass>
                             <outputJarVersions>true</outputJarVersions>
