@@ -7,13 +7,14 @@
         <class>com.chortitzer.industria.bal.dosificacionManual.domain.Productox</class>
         <class>com.chortitzer.industria.bal.dosificacionManual.domain.Dcaptura</class>
         <class>com.chortitzer.industria.bal.dosificacionManual.domain.Tareaseje</class>
+        <class>com.chortitzer.industria.bal.dosificacionManual.domain.TblMaquinasCin</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.3.114:3306/dbcp8100?zeroDateTimeBehavior=convertToNull"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.163.11:3306/dbcp8100?zeroDateTimeBehavior=convertToNull"/>
             <property name="javax.persistence.jdbc.user" value="delfines"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.password" value="delfines"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

@@ -5,6 +5,92 @@
     <artifactId>DosificacionManual</artifactId>
     <version>2.0</version>
     <packaging>jar</packaging>
+    <scm>
+        <connection>scm:git:https://github.com/acgiesbrecht/DosificacionManual.git</connection>
+        <developerConnection>scm:git:https://github.com/acgiesbrecht/DosificacionManual.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/acgiesbrecht/DosificacionManual.git</url>
+    </scm>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.png</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.jrxml</include>
+                    <include>**/*.sql</include>
+                    <include>version.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.icestuff</groupId>
+                <artifactId>getdown-maven-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>updates</goal>
+                        </goals>
+                        <configuration>
+                            <appbase>http://192.168.1.26/java/balanceadosDosificacionManual</appbase>
+                            <libPath>lib</libPath>
+                            <mainClass>com.chortitzer.industria.bal.dosificacionManual.controller.MainFrame</mainClass>
+                            <outputJarVersions>true</outputJarVersions>
+                            <verbose>true</verbose>
+                            <ui>
+                                <name>Balanceados Resultados 2</name>
+                                <progress>80, 244, 196, 11</progress>
+                                <progressText>FFFFFF</progressText>
+                                <statusText>FFFFFF</statusText>
+                                <status>20, 170, 316, 64</status>
+                                <textShadow>999999</textShadow>
+                            </ui>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>{0,number}</format>
+                    <items>
+                        <item>buildNumber</item>
+                    </items>
+                    <revisionOnScmFailure>unknownbuild</revisionOnScmFailure>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>getdown-maven-plugin-mvn-repo</id>
+            <url>https://raw.github.com/rockfireredmoon/getdown-maven-plugin/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -43,41 +129,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
-    </properties>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.icestuff</groupId>
-                <artifactId>getdown-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>updates</goal>
-                        </goals>
-                        <configuration>
-                            <appbase>http://192.168.1.26/java/balanceadosDosificacionManual</appbase>
-                            <libPath>lib</libPath>
-                            <mainClass>com.chortitzer.industria.bal.dosificacionManual.controller.MainFrame</mainClass>
-                            <outputJarVersions>true</outputJarVersions>
-                            <verbose>true</verbose>
-                            <ui>
-                                <name>Balanceados Resultados 2</name>
-                                <progress>80, 244, 196, 11</progress>
-                                <progressText>FFFFFF</progressText>
-                                <statusText>FFFFFF</statusText>
-                                <status>20, 170, 316, 64</status>
-                                <textShadow>999999</textShadow>
-                            </ui>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>
